@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: linear-gradient(132deg, #667eea, #764ba2); /* 🔥 MATCHED */
+            color: black;
+            text-align: center;
+        }
+
+        .card {
+            margin: 50px auto;
+            padding: 30px;
+            width: 400px;
+            border-radius: 20px;
+            background: white;/* 🔥 same glass effect */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        img {
+            width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .bar {
+            width: 100%;
+            background: rgba(255,255,255,0.3); /* 🔥 softer */
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .fill {
+            height: 20px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* 🔥 button color match */
+            width: 0%;
+            transition: 1s;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* 🔥 match */
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>🚀 Prediction Result</h2>
+
+    <img src="{{ image_path }}">
+
+    <h3>{{ prediction }}</h3>
+
+    <p>Confidence: {{ confidence }}%</p>
+
+    <div class="bar">
+        <div class="fill" id="bar"></div>
+    </div>
+
+    <p>Decision: {{ decision }}</p>
+
+    <a href="/" class="btn">🔙 Try Again</a>
+
+</div>
+
+<script>
+let confidence = {{ confidence }};
+document.getElementById("bar").style.width = confidence + "%";
+</script>
+
+</body>
+</html>
